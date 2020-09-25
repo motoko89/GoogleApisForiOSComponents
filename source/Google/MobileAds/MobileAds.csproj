@@ -24,7 +24,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865562</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>7.65.0</PackageVersion>
+    <PackageVersion>7.65.0.04</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
