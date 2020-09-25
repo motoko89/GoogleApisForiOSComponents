@@ -6,7 +6,7 @@
     <RootNamespace>Google.MobileAds</RootNamespace>
     <AssemblyName>Google.MobileAds</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>7.57.0</FileVersion>
+    <FileVersion>7.65.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ProcessEnums>true</ProcessEnums>
@@ -24,7 +24,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865562</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>7.57.0</PackageVersion>
+    <PackageVersion>7.65.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -36,8 +36,8 @@
   </ItemGroup>
   
   <ItemGroup>
-    <None Include="..\..\..\externals\PersonalizedAdConsent.framework\PersonalizedAdConsent">
-      <Link>PersonalizedAdConsent.framework</Link>
+    <None Include="..\..\..\staticexternals\UserMessagingPlatform.framework\UserMessagingPlatform">
+      <Link>UserMessagingPlatform.framework</Link>
     </None>
     <None Include="MobileAds.targets" Pack="True" PackagePath="build/Xamarin.Google.iOS.MobileAds.targets" />
     <None Include="MobileAds.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Google.iOS.MobileAds.targets" />
@@ -47,7 +47,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <NativeReference Include="..\..\..\externals\PersonalizedAdConsent.framework">
+    <NativeReference Include="..\..\..\staticexternals\UserMessagingPlatform.framework">
       <Kind>Framework</Kind>
       <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
