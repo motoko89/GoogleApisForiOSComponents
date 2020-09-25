@@ -6,7 +6,7 @@ Artifact FIREBASE_AUTH_ARTIFACT                    = new Artifact ("Firebase.Aut
 Artifact FIREBASE_CLOUD_FIRESTORE_ARTIFACT         = new Artifact ("Firebase.CloudFirestore",         "1.12.0",       "8.0", ComponentGroup.Firebase, csprojName: "CloudFirestore");
 Artifact FIREBASE_CLOUD_FUNCTIONS_ARTIFACT         = new Artifact ("Firebase.CloudFunctions",         "2.5.1",        "8.0", ComponentGroup.Firebase, csprojName: "CloudFunctions");
 Artifact FIREBASE_CLOUD_MESSAGING_ARTIFACT         = new Artifact ("Firebase.CloudMessaging",         "4.3.0",        "8.0", ComponentGroup.Firebase, csprojName: "CloudMessaging");*/
-Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Core",                   "6.10.3",        "8.0", ComponentGroup.Firebase, csprojName: "Core");
+Artifact FIREBASE_CORE_ARTIFACT                    = new Artifact ("Firebase.Core",                   "6.10.3",        "9.0", ComponentGroup.Firebase, csprojName: "Core");
 /*Artifact FIREBASE_CRASHLYTICS_ARTIFACT             = new Artifact ("Firebase.Crashlytics",            "4.0.0-beta.7", "8.0", ComponentGroup.Firebase, csprojName: "Crashlytics");
 Artifact FIREBASE_DATABASE_ARTIFACT                = new Artifact ("Firebase.Database",               "6.1.4",        "8.0", ComponentGroup.Firebase, csprojName: "Database");
 Artifact FIREBASE_DYNAMIC_LINKS_ARTIFACT           = new Artifact ("Firebase.DynamicLinks",           "4.0.8",        "8.0", ComponentGroup.Firebase, csprojName: "DynamicLinks");
@@ -29,7 +29,7 @@ Artifact GOOGLE_CAST_ARTIFACT         = new Artifact ("Google.Cast",        "4.4
 Artifact GOOGLE_CORE_ARTIFACT         = new Artifact ("Google.Core",        "3.1.0.4",  "7.0", ComponentGroup.Google, csprojName: "Core");
 Artifact GOOGLE_INSTANCE_ID_ARTIFACT  = new Artifact ("Google.InstanceID",  "1.2.1.18", "7.0", ComponentGroup.Google, csprojName: "InstanceID");
 Artifact GOOGLE_MAPS_ARTIFACT         = new Artifact ("Google.Maps",        "3.7.0.1",  "9.0", ComponentGroup.Google, csprojName: "Maps");*/
-Artifact GOOGLE_MOBILE_ADS_ARTIFACT   = new Artifact ("Google.MobileAds",   "7.57.0",   "8.0", ComponentGroup.Google, csprojName: "MobileAds");
+Artifact GOOGLE_MOBILE_ADS_ARTIFACT   = new Artifact ("Google.MobileAds",   "7.65.0",   "9.0", ComponentGroup.Google, csprojName: "MobileAds");
 /*Artifact GOOGLE_PLACES_ARTIFACT       = new Artifact ("Google.Places",      "3.7.0.1",  "9.0", ComponentGroup.Google, csprojName: "Places");
 Artifact GOOGLE_SIGN_IN_ARTIFACT      = new Artifact ("Google.SignIn",      "5.0.2.1",  "8.0", ComponentGroup.Google, csprojName: "SignIn");
 Artifact GOOGLE_TAG_MANAGER_ARTIFACT  = new Artifact ("Google.TagManager",  "7.1.2.3",  "8.0", ComponentGroup.Google, csprojName: "TagManager");*/
@@ -142,7 +142,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("GoogleDataTransport",            "7.4.0",    frameworkSource: FrameworkSource.Pods),
 		PodSpec.Create ("GoogleUtilities",                "6.7.2",    frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "AppDelegateSwizzler", "Environment", /*"ISASwizzler",*/ "Logger", "MethodSwizzler", "Network", "NSData+zlib", "Reachability"/*, "UserDefaults"*/ }),
 		PodSpec.Create ("nanopb",                         "1.30906.0", frameworkSource: FrameworkSource.Pods, subSpecs: new [] { "decode", "encode" }),
-		PodSpec.Create ("PromisesObjC",                   "1.2.10",    frameworkSource: FrameworkSource.Pods)
+		PodSpec.Create ("PromisesObjC",                   "1.2.10")
 
 	/*	PodSpec.Create ("FirebaseAuthInterop",            "1.1.0",    frameworkSource: FrameworkSource.Pods, canBeBuild: false),
 		PodSpec.Create ("FirebaseAnalyticsInterop",       "1.5.0",    frameworkSource: FrameworkSource.Pods, canBeBuild: false),
@@ -222,7 +222,7 @@ void SetArtifactsPodSpecs ()
 	};*/
 	GOOGLE_MOBILE_ADS_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("Google-Mobile-Ads-SDK", "7.65.0"),
-		PodSpec.Create ("GoogleUserMessagingPlatform", "1.2.0", frameworkSource: FrameworkSource.Pods)
+		PodSpec.Create ("GoogleUserMessagingPlatform", "1.2.0")
 	};
 	/*GOOGLE_PLACES_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("GooglePlaces", "3.7.0")
