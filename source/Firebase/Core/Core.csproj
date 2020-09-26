@@ -6,7 +6,7 @@
     <RootNamespace>Firebase.Core</RootNamespace>
     <AssemblyName>Firebase.Core</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>6.10.3</FileVersion>
+    <FileVersion>6.10.3.02</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2007321</PackageProjectUrl>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>6.10.3</PackageVersion>
+    <PackageVersion>6.10.3.02</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -49,6 +49,9 @@
     </None>
     <None Include="..\..\..\externals\nanopb.framework\nanopb">
       <Link>nanopb.framework</Link>
+    </None>
+    <None Include="..\..\..\staticexternals\FBLPromises.framework\FBLPromises">
+      <Link>libFBLPromises.framework</Link>
     </None>
     <None Include="Core.targets" Pack="True" PackagePath="build/Xamarin.Firebase.iOS.Core.targets" />
     <None Include="Core.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Firebase.iOS.Core.targets" />
@@ -88,9 +91,10 @@
       <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
     </NativeReference>
-    <NativeReference Include="..\..\..\staticexternals\libFBLPromises.a">
-      <Kind>Static</Kind>
-      <SmartLink>False</SmartLink>
+    <NativeReference Include="..\..\..\staticexternals\FBLPromises.framework\FBLPromises">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
     </NativeReference>
   </ItemGroup>
 
