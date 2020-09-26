@@ -5,6 +5,8 @@
 		<_FirebaseCoreAssemblyName>Firebase.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseCoreAssemblyName>
 		<_GoogleAppMeasurementItemsFolder>GAppM-6.8.3</_GoogleAppMeasurementItemsFolder>
 		<_GoogleAppMeasurementSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleAppMeasurementItemsFolder)\Frameworks\</_GoogleAppMeasurementSDKBaseFolder>
+    <_FBLPromisesItemsFolder>FBLP-1.2.10</_FBLPromisesItemsFolder>
+    <_FBLPromisesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FBLPromisesItemsFolder)\</_FBLPromisesSDKBaseFolder>
 	</PropertyGroup>
 
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
@@ -23,6 +25,24 @@
 				<ForceLoad>True</ForceLoad>
 				<LinkerFlags>-ObjC -lc++ -lsqlite3 -lz</LinkerFlags>
 				<Frameworks>Security StoreKit SystemConfiguration UIKit</Frameworks>
+			</NativeReference>
+		</ItemGroup>
+	</Target>
+
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+		<XamarinBuildDownload Include="$(_FBLPromisesItemsFolder)">
+			<Url>https://github.com/motoko89/staticframeworks/raw/master/FBLPromises.1.2.10.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildRestoreResources Include="_FBLPDownloadedItems" />
+	</ItemGroup>
+	<Target Name="_FBLPDownloadedItems">
+		<ItemGroup>
+			<!-- From https://github.com/motoko89/staticframeworks/raw/master/FBLPromises.1.2.10.tar.gz -->
+			<NativeReference Include="$(_FBLPromisesSDKBaseFolder)FBLPromises.framework">
+				<Kind>Framework</Kind>
+				<SmartLink>True</SmartLink>
+				<ForceLoad>True</ForceLoad>
 			</NativeReference>
 		</ItemGroup>
 	</Target>

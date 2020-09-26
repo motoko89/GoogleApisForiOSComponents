@@ -4,6 +4,8 @@
 		<_GoogleMobileAdsAssemblyName>Google.MobileAds, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_GoogleMobileAdsAssemblyName>
 		<_GoogleMobileAdsId>FAdM-7.65.0</_GoogleMobileAdsId>
 		<_GoogleMobileAdsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleMobileAdsId)\Frameworks\GoogleMobileAdsFramework-Current\</_GoogleMobileAdsSDKBaseFolder>
+    <_UMPId>UMP-1.2.0</_UMPId>
+		<_UMPSDKBaseFolder>$(XamarinBuildDownloadDir)$(_UMPId)\Frameworks\Release\</_UMPSDKBaseFolder>
 	</PropertyGroup>
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
 		<XamarinBuildDownload Include="$(_GoogleMobileAdsId)">
@@ -22,6 +24,26 @@
 				<LinkerFlags>-ObjC -lz -lsqlite3</LinkerFlags>
 				<Frameworks>AudioToolbox AVFoundation CFNetwork CoreGraphics CoreMedia CoreTelephony CoreVideo MediaPlayer MessageUI MobileCoreServices QuartzCore Security StoreKit SystemConfiguration</Frameworks>
 				<WeakFrameworks>AdSupport JavaScriptCore SafariServices WebKit</WeakFrameworks>
+			</NativeReference>
+		</ItemGroup>
+	</Target>
+	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+		<XamarinBuildDownload Include="$(_UMPId)">
+			<Url>https://dl.google.com/dl/cpdc/343b3ca1b9ef3fc4/GoogleUserMessagingPlatform-1.2.0.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildRestoreResources Include="_UMPDownloadedItems" />
+	</ItemGroup>
+	<Target Name="_UMPDownloadedItems">
+		<ItemGroup>
+			<!-- From https://dl.google.com/dl/cpdc/343b3ca1b9ef3fc4/GoogleUserMessagingPlatform-1.2.0.tar.gz -->
+			<NativeReference Include="$(_UMPSDKBaseFolder)UserMessagingPlatform.framework">
+				<Kind>Framework</Kind>
+				<SmartLink>True</SmartLink>
+				<ForceLoad>True</ForceLoad>
+				<LinkerFlags>-ObjC</LinkerFlags>
+				<Frameworks>WebKit</Frameworks>
+				<WeakFrameworks>AdSupport</WeakFrameworks>
 			</NativeReference>
 		</ItemGroup>
 	</Target>
