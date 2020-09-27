@@ -5,8 +5,10 @@
 		<_FirebaseCoreAssemblyName>Firebase.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_FirebaseCoreAssemblyName>
 		<_GoogleAppMeasurementItemsFolder>GAppM-6.8.3</_GoogleAppMeasurementItemsFolder>
 		<_GoogleAppMeasurementSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleAppMeasurementItemsFolder)\Frameworks\</_GoogleAppMeasurementSDKBaseFolder>
-    <_FBLPromisesItemsFolder>FBLP-1.2.10</_FBLPromisesItemsFolder>
-    <_FBLPromisesSDKBaseFolder>$(XamarinBuildDownloadDir)$(_FBLPromisesItemsFolder)\</_FBLPromisesSDKBaseFolder>
+    <_FBLPromisesDeviceItemsFolder>FBLPD-1.2.10</_FBLPromisesDeviceItemsFolder>
+    <_FBLPromisesSDKDeviceFolder>$(XamarinBuildDownloadDir)$(_FBLPromisesDeviceItemsFolder)\</_FBLPromisesSDKDeviceFolder>
+    <_FBLPromisesSimulatorItemsFolder>FBLPS-1.2.10</_FBLPromisesSimulatorItemsFolder>
+    <_FBLPromisesSDKSimulatorFolder>$(XamarinBuildDownloadDir)$(_FBLPromisesSimulatorItemsFolder)\</_FBLPromisesSDKSimulatorFolder>
 	</PropertyGroup>
 
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
@@ -29,17 +31,35 @@
 		</ItemGroup>
 	</Target>
 
-	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
-		<XamarinBuildDownload Include="$(_FBLPromisesItemsFolder)">
-			<Url>https://github.com/motoko89/staticframeworks/raw/master/FBLPromises.1.2.10.tar.gz</Url>
+	<ItemGroup Condition="(('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True') AND '$(Platform)' == 'iPhoneSimulator')">
+		<XamarinBuildDownload Include="$(_FBLPromisesSimulatorItemsFolder)">
+			<Url>https://github.com/motoko89/staticframeworks/raw/master/FBLPromises.Simulator.1.2.10.tar.gz</Url>
 			<Kind>Tgz</Kind>
 		</XamarinBuildDownload>
-		<XamarinBuildRestoreResources Include="_FBLPDownloadedItems" />
+		<XamarinBuildRestoreResources Include="_FBLPSDownloadedItems" />
 	</ItemGroup>
-	<Target Name="_FBLPDownloadedItems">
+	<Target Name="_FBLPSDownloadedItems">
 		<ItemGroup>
-			<!-- From https://github.com/motoko89/staticframeworks/raw/master/FBLPromises.1.2.10.tar.gz -->
-			<NativeReference Include="$(_FBLPromisesSDKBaseFolder)FBLPromises.framework">
+			<!-- From https://github.com/motoko89/staticframeworks/raw/master/FBLPromises.Simulator.1.2.10.tar.gz -->
+			<NativeReference Include="$(_FBLPromisesSDKSimulatorFolder)FBLPromises.framework">
+				<Kind>Framework</Kind>
+				<SmartLink>True</SmartLink>
+				<ForceLoad>True</ForceLoad>
+			</NativeReference>
+		</ItemGroup>
+	</Target>
+
+	<ItemGroup Condition="(('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True') AND '$(Platform)' == 'iPhone')">
+		<XamarinBuildDownload Include="$(_FBLPromisesDeviceItemsFolder)">
+			<Url>https://github.com/motoko89/staticframeworks/raw/master/FBLPromises.Device.1.2.10.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildRestoreResources Include="_FBLPDDownloadedItems" />
+	</ItemGroup>
+	<Target Name="_FBLPDDownloadedItems">
+		<ItemGroup>
+			<!-- From https://github.com/motoko89/staticframeworks/raw/master/FBLPromises.Device.1.2.10.tar.gz -->
+			<NativeReference Include="$(_FBLPromisesSDKDeviceFolder)FBLPromises.framework">
 				<Kind>Framework</Kind>
 				<SmartLink>True</SmartLink>
 				<ForceLoad>True</ForceLoad>
