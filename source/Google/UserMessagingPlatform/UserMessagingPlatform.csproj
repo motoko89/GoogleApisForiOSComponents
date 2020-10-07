@@ -53,6 +53,9 @@
     <Compile Update="Loader.cs">
       <SubType></SubType>
     </Compile>
+    <Compile Update="Extensions.cs">
+      <SubType></SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 </Project>
