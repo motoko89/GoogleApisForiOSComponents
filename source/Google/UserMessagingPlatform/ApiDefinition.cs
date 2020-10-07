@@ -4,27 +4,29 @@ using UIKit;
 
 namespace Google.UserMessagingPlatform {
 	// @interface UMPDebugSettings : NSObject <NSCopying>
-	[BaseType (typeof (NSObject))]
-	interface UMPDebugSettings : INSCopying {
+	[BaseType (typeof (NSObject),
+		Name = "UMPDebugSettings")]
+	interface DebugSettings : INSCopying {
 		// @property (nonatomic) NSArray<NSString *> * _Nullable testDeviceIdentifiers;
 		[NullAllowed, Export ("testDeviceIdentifiers", ArgumentSemantic.Assign)]
 		string [] TestDeviceIdentifiers { get; set; }
 
 		// @property (nonatomic) UMPDebugGeography geography;
 		[Export ("geography", ArgumentSemantic.Assign)]
-		UMPDebugGeography Geography { get; set; }
+		DebugGeography Geography { get; set; }
 	}
 
 	// @interface UMPRequestParameters : NSObject
-	[BaseType (typeof (NSObject))]
-	interface UMPRequestParameters {
+	[BaseType (typeof (NSObject),
+		Name = "UMPRequestParameters")]
+	interface RequestParameters {
 		// @property (nonatomic) BOOL tagForUnderAgeOfConsent;
 		[Export ("tagForUnderAgeOfConsent")]
 		bool TagForUnderAgeOfConsent { get; set; }
 
 		// @property (copy, nonatomic) UMPDebugSettings * _Nullable debugSettings;
 		[NullAllowed, Export ("debugSettings", ArgumentSemantic.Copy)]
-		UMPDebugSettings DebugSettings { get; set; }
+		DebugSettings DebugSettings { get; set; }
 	}
 
 	/*[Static]
@@ -36,31 +38,32 @@ namespace Google.UserMessagingPlatform {
 	}*/
 
 	// typedef void (^UMPConsentInformationUpdateCompletionHandler)(NSError * _Nullable);
-	delegate void UMPConsentInformationUpdateCompletionHandler ([NullAllowed] NSError arg0);
+	delegate void ConsentInformationUpdateCompletionHandler ([NullAllowed] NSError arg0);
 
 	// @interface UMPConsentInformation : NSObject
-	[BaseType (typeof (NSObject))]
-	interface UMPConsentInformation {
+	[BaseType (typeof (NSObject),
+		Name = "UMPConsentInformation")]
+	interface ConsentInformation {
 		// @property (readonly, nonatomic, class) UMPConsentInformation * _Nonnull sharedInstance;
 		[Static]
 		[Export ("sharedInstance")]
-		UMPConsentInformation SharedInstance { get; }
+		ConsentInformation SharedInstance { get; }
 
 		// @property (readonly, nonatomic) UMPConsentStatus consentStatus;
 		[Export ("consentStatus")]
-		UMPConsentStatus ConsentStatus { get; }
+		ConsentStatus ConsentStatus { get; }
 
 		// @property (readonly, nonatomic) UMPConsentType consentType;
 		[Export ("consentType")]
-		UMPConsentType ConsentType { get; }
+		ConsentType ConsentType { get; }
 
 		// @property (readonly, nonatomic) UMPFormStatus formStatus;
 		[Export ("formStatus")]
-		UMPFormStatus FormStatus { get; }
+		FormStatus FormStatus { get; }
 
 		// -(void)requestConsentInfoUpdateWithParameters:(UMPRequestParameters * _Nullable)parameters completionHandler:(UMPConsentInformationUpdateCompletionHandler _Nonnull)handler;
 		[Export ("requestConsentInfoUpdateWithParameters:completionHandler:")]
-		void RequestConsentInfoUpdateWithParameters ([NullAllowed] UMPRequestParameters parameters, UMPConsentInformationUpdateCompletionHandler handler);
+		void RequestConsentInfoUpdate([NullAllowed] RequestParameters parameters, ConsentInformationUpdateCompletionHandler handler);
 
 		// -(void)reset;
 		[Export ("reset")]
@@ -68,23 +71,23 @@ namespace Google.UserMessagingPlatform {
 	}
 
 	// typedef void (^UMPConsentFormLoadCompletionHandler)(UMPConsentForm * _Nullable, NSError * _Nullable);
-	delegate void UMPConsentFormLoadCompletionHandler ([NullAllowed] UMPConsentForm arg0, [NullAllowed] NSError arg1);
+	delegate void ConsentFormLoadCompletionHandler ([NullAllowed] ConsentForm arg0, [NullAllowed] NSError arg1);
 
 	// typedef void (^UMPConsentFormPresentCompletionHandler)(NSError * _Nullable);
-	delegate void UMPConsentFormPresentCompletionHandler ([NullAllowed] NSError arg0);
+	delegate void ConsentFormPresentCompletionHandler ([NullAllowed] NSError arg0);
 
 	// @interface UMPConsentForm : NSObject
-	[BaseType (typeof (NSObject))]
+	[BaseType (typeof (NSObject), Name= "UMPConsentForm")]
 	[DisableDefaultCtor]
-	interface UMPConsentForm {
+	interface ConsentForm {
 		// +(void)loadWithCompletionHandler:(UMPConsentFormLoadCompletionHandler _Nonnull)completionHandler;
 		[Static]
 		[Export ("loadWithCompletionHandler:")]
-		void LoadWithCompletionHandler (UMPConsentFormLoadCompletionHandler completionHandler);
+		void Load(ConsentFormLoadCompletionHandler completionHandler);
 
 		// -(void)presentFromViewController:(UIViewController * _Nonnull)viewController completionHandler:(UMPConsentFormPresentCompletionHandler _Nullable)completionHandler;
 		[Export ("presentFromViewController:completionHandler:")]
-		void PresentFromViewController (UIViewController viewController, [NullAllowed] UMPConsentFormPresentCompletionHandler completionHandler);
+		void Present(UIViewController viewController, [NullAllowed] ConsentFormPresentCompletionHandler completionHandler);
 	}
 
 	/*[Static]
