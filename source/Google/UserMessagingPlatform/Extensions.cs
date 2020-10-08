@@ -7,7 +7,7 @@ namespace Google.UserMessagingPlatform
 {
 	public partial class ConsentInformation
 	{
-		Task RequestConsentInfoUpdate(RequestParameters parameters)
+		public  Task RequestConsentInfoUpdate(RequestParameters parameters)
 		{
 			var t = new TaskCompletionSource<bool>();
 			ConsentInformationUpdateCompletionHandler handler = (error) => {
