@@ -6,7 +6,7 @@
     <RootNamespace>Google.UserMessagingPlatform</RootNamespace>
     <AssemblyName>Google.UserMessagingPlatform</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.2.0.1</FileVersion>
+    <FileVersion>1.2.0.3</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -19,7 +19,7 @@
     <Authors>KenZenSoft Inc.</Authors>
     <Owners>KenZenSoft Inc.</Owners>
     <Copyright>© KenZenSoft Inc.. All rights reserved.</Copyright>
-    <PackageVersion>1.2.0.1</PackageVersion>
+    <PackageVersion>1.2.0.3</PackageVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>Xamarin;Google;iOS;UserMessagingPlatform;UMP</PackageTags>
   </PropertyGroup>
@@ -51,9 +51,6 @@
   
   <ItemGroup>
     <Compile Update="Loader.cs">
-      <SubType></SubType>
-    </Compile>
-    <Compile Update="Extensions.cs">
       <SubType></SubType>
     </Compile>
   </ItemGroup>

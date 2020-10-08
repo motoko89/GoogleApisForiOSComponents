@@ -40,6 +40,7 @@ namespace Google.UserMessagingPlatform {
 	// typedef void (^UMPConsentInformationUpdateCompletionHandler)(NSError * _Nullable);
 	delegate void ConsentInformationUpdateCompletionHandler ([NullAllowed] NSError arg0);
 
+	[DisableDefaultCtor]
 	// @interface UMPConsentInformation : NSObject
 	[BaseType (typeof (NSObject),
 		Name = "UMPConsentInformation")]
