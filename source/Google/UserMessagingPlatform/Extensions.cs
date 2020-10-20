@@ -48,7 +48,7 @@ namespace Google.UserMessagingPlatform
 					t.TrySetResult (true);
 				}
 			};
-			Present(viewController);
+			Present(viewController, handler);
 			return t.Task;
 		}
 	}
