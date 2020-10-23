@@ -8,7 +8,7 @@
     <_FBLPromisesDeviceItemsFolder>FBLPD-1.2.10</_FBLPromisesDeviceItemsFolder>
     <_FBLPromisesSDKDeviceFolder>$(XamarinBuildDownloadDir)$(_FBLPromisesDeviceItemsFolder)\</_FBLPromisesSDKDeviceFolder>
     <_FBLPromisesSimulatorItemsFolder>FBLPS-1.2.10</_FBLPromisesSimulatorItemsFolder>
-    <_FBLPromisesSDKSimulatorFolder>$(XamarinBuildDownloadDir)$(_FBLPromisesSimulatorItemsFolder)\</_FBLPromisesSDKSimulatorFolder>
+    <_FBLPromisesSDKSimulatorFolder>$(XamarinBuildDownloadDir)$(_FBLPromisesSimulatorItemsFolder)\Framework\</_FBLPromisesSDKSimulatorFolder>
 	</PropertyGroup>
 
 	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
