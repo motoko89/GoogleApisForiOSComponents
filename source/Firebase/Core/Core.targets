@@ -6,7 +6,7 @@
 		<_GoogleAppMeasurementItemsFolder>GAppM-6.8.3</_GoogleAppMeasurementItemsFolder>
 		<_GoogleAppMeasurementSDKBaseFolder>$(XamarinBuildDownloadDir)$(_GoogleAppMeasurementItemsFolder)\Frameworks\</_GoogleAppMeasurementSDKBaseFolder>
     <_FBLPromisesDeviceItemsFolder>FBLPD-1.2.10</_FBLPromisesDeviceItemsFolder>
-    <_FBLPromisesSDKDeviceFolder>$(XamarinBuildDownloadDir)$(_FBLPromisesDeviceItemsFolder)\</_FBLPromisesSDKDeviceFolder>
+    <_FBLPromisesSDKDeviceFolder>$(XamarinBuildDownloadDir)$(_FBLPromisesDeviceItemsFolder)\Framework\</_FBLPromisesSDKDeviceFolder>
     <_FBLPromisesSimulatorItemsFolder>FBLPS-1.2.10</_FBLPromisesSimulatorItemsFolder>
     <_FBLPromisesSDKSimulatorFolder>$(XamarinBuildDownloadDir)$(_FBLPromisesSimulatorItemsFolder)\Framework\</_FBLPromisesSDKSimulatorFolder>
 	</PropertyGroup>
