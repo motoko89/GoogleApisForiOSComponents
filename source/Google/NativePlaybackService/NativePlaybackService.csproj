@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="MSBuild.Sdk.Extras/2.1.2">
+  <PropertyGroup>
+    <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
+    <IsBindingProject>true</IsBindingProject>
+    <RootNamespace>KenZenSoft.NativePlaybackService</RootNamespace>
+    <AssemblyName>NativePlaybackService</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ProcessEnums>true</ProcessEnums>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageId>KenZenSoft.NativePlaybackService</PackageId>
+    <Title>KenZenSoft.NativePlaybackService</Title>
+    <Summary>KenZenSoft.NativePlaybackService</Summary>
+    <Description>KenZenSoft.NativePlaybackService</Description>
+    <Authors>KenZenSoft Inc.</Authors>
+    <Owners>KenZenSoft Inc.</Owners>
+    <Copyright>© KenZenSoft Inc.. All rights reserved.</Copyright>
+    <PackageVersion>1.0.0.0</PackageVersion>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>KenZenSoft;NativePlaybackService</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="ApiDefinition.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="NativePlaybackService.targets" Pack="True" PackagePath="build/NativePlaybackService.targets" />
+    <None Include="NativePlaybackService.targets" Pack="True" PackagePath="buildTransitive/NativePlaybackService.targets" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Build.Download" Version="0.10.0" PrivateAssets="None" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Update="Loader.cs">
+      <SubType></SubType>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+</Project>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<_NativePlaybackServiceAssemblyName>KenZenSoft.NativePlaybackService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</_NativePlaybackServiceAssemblyName>
+		<_NPSSId>NPSS-1.0.0.0</_NPSSId>
+		<_NPSSSDKBaseFolder>$(XamarinBuildDownloadDir)$(_NPSSId)\Framework\</_NPSSSDKBaseFolder>
+    <_NPSDId>NPSD-1.0.0.0</_NPSDId>
+		<_NPSDSDKBaseFolder>$(XamarinBuildDownloadDir)$(_NPSDId)\Framework\</_NPSDSDKBaseFolder>
+	</PropertyGroup>
+  
+	<ItemGroup Condition="(('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True') AND '$(Platform)' == 'iPhoneSimulator')">
+		<XamarinBuildDownload Include="$(_NPSSId)">
+			<Url>https://github.com/motoko89/staticframeworks/raw/master/NativePlaybackService.Simulator.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildRestoreResources Include="_NPSSDownloadedItems" />
+	</ItemGroup>
+	<Target Name="_NPSSDownloadedItems">
+		<ItemGroup>
+			<!-- From https://github.com/motoko89/staticframeworks/raw/master/NativePlaybackService.Simulator.tar.gz -->
+			<NativeReference Include="$(_NPSSSDKBaseFolder)NativePlaybackService.framework">
+				<Kind>Framework</Kind>
+				<SmartLink>True</SmartLink>
+				<ForceLoad>True</ForceLoad>
+				<Frameworks>AVFoundation UIKit</Frameworks>
+			</NativeReference>
+		</ItemGroup>
+	</Target>
+
+	<ItemGroup Condition="(('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True') AND '$(Platform)' == 'iPhone')">
+		<XamarinBuildDownload Include="$(_NPSDId)">
+			<Url>https://github.com/motoko89/staticframeworks/raw/master/NativePlaybackService.Device.tar.gz</Url>
+			<Kind>Tgz</Kind>
+		</XamarinBuildDownload>
+		<XamarinBuildRestoreResources Include="_NPSDDownloadedItems" />
+	</ItemGroup>
+	<Target Name="_NPSDDownloadedItems">
+		<ItemGroup>
+			<!-- From https://github.com/motoko89/staticframeworks/raw/master/NativePlaybackService.Device.tar.gz -->
+			<NativeReference Include="$(_NPSDSDKBaseFolder)NativePlaybackService.framework">
+				<Kind>Framework</Kind>
+				<SmartLink>True</SmartLink>
+				<ForceLoad>True</ForceLoad>
+				<Frameworks>AVFoundation UIKit</Frameworks>
+			</NativeReference>
+		</ItemGroup>
+	</Target>
+</Project>
